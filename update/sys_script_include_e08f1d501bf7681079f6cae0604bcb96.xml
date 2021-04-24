@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_58872_needit.NeedItUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Utils Script Include for the NeedIt application.</description>
+        <name>NeedItUtils</name>
+        <script><![CDATA[var NeedItUtils = Class.create();
+NeedItUtils.prototype = {
+	initialize: function() {
+					this.minProcessingDays = 0;
+				},
+
+	isNeededForDateValid: function(strDate, numDays) {
+							// initialize the dates to compare
+							var testdate = new GlideDateTime(strDate);
+							var rightnow = new GlideDateTime();
+
+							// make sure the testdate meets our criteria:  Must be numDays from today
+							rightnow.addDaysUTC(numDays);
+							if(testdate.getDate().before(rightnow.getDate())){
+								return false;
+							} else {
+								return true;
+							}
+	},
+    type: 'NeedItUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-04-24 14:58:39</sys_created_on>
+        <sys_id>e08f1d501bf7681079f6cae0604bcb96</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>NeedItUtils</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_include_e08f1d501bf7681079f6cae0604bcb96</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-04-24 15:25:44</sys_updated_on>
+    </sys_script_include>
+</record_update>
